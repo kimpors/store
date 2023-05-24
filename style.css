@@ -1,0 +1,147 @@
+:root {
+  --text-color: #050505;
+  --background-color: #ebebeb;
+  --sold-out-color: #535c64;
+  --available-color: #7ea348;
+}
+
+head,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+details p {
+  max-width: 22ch;
+}
+
+details summary {
+  list-style-type: none;
+  transition: 2s;
+}
+
+summary:hover {
+  filter: brightness(60%);
+}
+
+section img {
+  cursor: pointer;
+  transition: 200ms;
+}
+
+section img:hover {
+  filter: brightness(70%);
+}
+
+h1 {
+  font-size: 4rem;
+  cursor: default;
+  user-select: none;
+}
+
+h2,
+footer {
+  text-align: center;
+}
+
+button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 8px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: var(--text-color);
+  border-radius: 4px;
+  border: solid 2px var(--sold-out-color);
+  box-shadow: 5px -5px var(--sold-out-color);
+  transition: transform 200ms, box-shadow 300ms;
+}
+
+button:active,
+button.available:active {
+  transform: translateX(10px);
+  box-shadow: 0 0 0 var(--sold-out-color);
+}
+
+article {
+  display: flex;
+  text-align: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 50px;
+  margin-right: 50px;
+}
+
+article section {
+  margin-inline: 20px;
+}
+
+details[open] summary ~ * {
+  animation: sweep 500ms ease-in-out;
+}
+
+header.welcome,
+header.garbage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("clothes-header.gif");
+  background-position: center;
+  background-size: cover;
+}
+
+header.welcome {
+  background-image: url("img/clothes-header.gif");
+}
+
+header.garbage {
+  background-image: url("img/trash-garbage.gif");
+}
+
+a.social-media {
+  padding: 0.5rem;
+}
+
+button.available {
+  border: solid 2px var(--available-color);
+  box-shadow: 5px -5px var(--available-color);
+}
+
+.center {
+  display: block;
+  text-align: center;
+}
+
+#basket {
+  display: flex;
+  justify-content: right;
+  padding: 0.5rem;
+}
+
+@media (width > 400px) {
+  #basket {
+    position: sticky;
+    top: 0;
+  }
+}
+
+@keyframes sweep {
+  from {
+    opacity: 0;
+    margin-top: 0px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 10px;
+  }
+}
